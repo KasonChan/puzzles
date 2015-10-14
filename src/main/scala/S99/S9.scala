@@ -22,7 +22,7 @@ object S9 extends App {
   println(pack(l1))
   println(pack(l2))
 
-  def pack[T](s: List[T]): List[Seq[T]] = {
+  def pack[T](s: List[T]): List[List[T]] = {
     if (s.isEmpty) List(List())
     else {
       val (packed, next) = s span {
