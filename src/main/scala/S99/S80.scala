@@ -44,9 +44,26 @@ object S80 extends App {
     Adj(adj)
   }
 
+  def adjToGraph(adj: Adj): Graph = {
+    val nodes = adj.edges.map { a => a._1 }
+
+    val edgesInt = adj.edges.flatMap { e =>
+      e._2.map { n =>
+        if (e._1 < n) (e._1, n)
+        else (n, e._1)
+      }
+    }
+
+    val edges = edgesInt.distinct
+
+    Graph(nodes, edges)
+  }
+
   val g = Graph(List("b", "c", "d", "f", "g", "h", "k"),
     List(("b", "c"), ("b", "f"), ("c", "f"), ("f", "k"), ("g", "h")))
 
   println(graphToAdj(g))
+
+  println(adjToGraph(graphToAdj(g)))
 
 }
