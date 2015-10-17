@@ -27,7 +27,7 @@ object S80 extends App {
 
   case class Adj(edges: List[n])
 
-  def graphToAdj(graph: Graph) = {
+  def graphToAdj(graph: Graph): Adj = {
     val adjInt = for {
       node <- graph.nodes
       edges = graph.edges.filter(x => node == x._1 || node == x._2)
@@ -37,11 +37,11 @@ object S80 extends App {
       (ai._1, ai._2.map {
         ai2 =>
           if (ai2._1 != ai._1) ai2._1
-          else if (ai2._2 != ai._1) ai2._2
+          else ai2._2
       })
     }
 
-    adj
+    Adj(adj)
   }
 
   val g = Graph(List("b", "c", "d", "f", "g", "h", "k"),
