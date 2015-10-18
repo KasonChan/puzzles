@@ -4,8 +4,7 @@ package S99
  * Created by ka-son on 10/17/15.
  */
 object S80 extends App {
-
-
+  
   //  (***) Conversions
   //  Write predicates to convert between the different graph representations.
   //  With these predicates, all representations are equivalent;
