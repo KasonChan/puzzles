@@ -22,7 +22,7 @@ object S23 extends App {
     case false => i
   }
 
-  def rndSelect[T](l: List[T], i: Int) = {
+  def rndSelect[T](l: List[T], i: Int): Seq[T] = {
     val r = scala.util.Random
 
     l.isEmpty match {
