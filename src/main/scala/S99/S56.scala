@@ -1,11 +1,11 @@
 package S99
 
-import helpers.{Branch, Empty, Tree}
+import helpers.Tree
 
 /**
  * Created by ka-son on 10/31/15.
  */
-object S56 extends App {
+object S56 {
 
   //  4 Problem 56
   //  (**) Symmetric binary trees
@@ -24,8 +24,5 @@ object S56 extends App {
   def symmetric[T](t: Tree[T]): Boolean = {
     t.isSymmetric
   }
-
-  println(symmetric(Branch("x", Branch("x", Empty, Empty), Empty)))
-  println(symmetric(Branch("x", Branch("x", Empty, Empty), Branch("x", Empty, Empty))))
 
 }
