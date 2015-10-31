@@ -1,6 +1,6 @@
 package S99
 
-import helpers.{End, Node, Tree}
+import helpers.{Branch, Empty, Tree}
 
 /**
  * Created by kasonchan on 10/29/15.
@@ -66,16 +66,16 @@ object S55 extends App {
   //  ]
 
   def cbalTree[T](nodes: Int, value: T): List[Tree[T]] = nodes match {
-    case n if n < 1 => List(End)
+    case n if n < 1 => List(Empty)
     case n if n % 2 == 1 => {
       val subtrees = cbalTree(n / 2, value)
-      subtrees.flatMap(l => subtrees.map(r => Node(value, l, r)))
+      subtrees.flatMap(l => subtrees.map(r => Branch(value, l, r)))
     }
     case n if n % 2 == 0 => {
       val lesserSubtrees = cbalTree((n - 1) / 2, value)
       val greaterSubtrees = cbalTree((n - 1) / 2 + 1, value)
       lesserSubtrees.flatMap(l => greaterSubtrees
-        .flatMap(g => List(Node(value, l, g), Node(value, g, l))))
+        .flatMap(g => List(Branch(value, l, g), Branch(value, g, l))))
     }
   }
 
