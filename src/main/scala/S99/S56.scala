@@ -22,7 +22,7 @@ object S56 extends App {
   //  True
 
   def symmetric[T](t: Tree[T]): Boolean = {
-    ???
+    t.isSymmetric
   }
 
   println(symmetric(Branch("x", Branch("x", Empty, Empty), Empty)))
